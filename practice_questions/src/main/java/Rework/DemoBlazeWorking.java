@@ -42,11 +42,10 @@ public class DemoBlazeWorking {
 		}
 
 		driver.findElement(By.xpath("//a[text()='Laptops']")).click();
+        WebElement lap = wait.until(
+    ExpectedConditions.elementToBeClickable(By.xpath("//a[text()='MacBook Pro']"))
+);
 
-		wait.until(ExpectedConditions.invisibilityOfElementLocated(
-				By.xpath("//a[text()='Samsung galaxy s6']")));
-		wait.until(ExpectedConditions.visibilityOfElementLocated(
-				By.xpath("//a[text()='MacBook Pro']")));
 
 		List<WebElement> product = driver.findElements(By.className("hrefch"));
 		List<String> productList = new ArrayList<>();
@@ -65,17 +64,17 @@ public class DemoBlazeWorking {
 		Actions act = new Actions(driver);
 		WebElement lap = driver.findElement(By.xpath("//a[text()='MacBook Pro']"));
 
-		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("arguments[0].scrollIntoView(true);", lap);
+		JavascriptExecutor js = (JavascriptExecutor)driver;
+js.executeScript("arguments[0].scrollIntoView(true);", lap);
 
-		if (lap.getText().contains("Pro")) {
-			System.out.println("MacBook Pro Found");
-		}
+if(lap.getText().contains("Pro")) {
+    System.out.println("MacBook Pro Found");
+}
 
-		wait.until(ExpectedConditions.elementToBeClickable(lap));
-		lap.click();
+js.executeScript("arguments[0].click();", lap);
 
-		wait.until(ExpectedConditions.urlContains("prod.html"));
+// wait for product page
+wait.until(ExpectedConditions.urlContains("prod.html"));
 
 		// Add Product to Cart
 		WebElement titleElement = wait.until(
