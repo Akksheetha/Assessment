@@ -1,4 +1,4 @@
-package Rework;
+package demo;
 
 import java.time.Duration;
 import java.util.ArrayList;
@@ -20,7 +20,6 @@ public class DemoBlazeWorking {
 
 	public static void main(String[] args) throws InterruptedException {
 		// TODO Auto-generated method stub
-		
 		//Login
 		WebDriver driver = new ChromeDriver();
 		driver.get("https://demoblaze.com");
@@ -63,10 +62,10 @@ public class DemoBlazeWorking {
 			System.out.println("MacBook Pro Found");
 		}
 		act.moveToElement(lap).click().perform();
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//h2[text()='MacBook Pro']")));
 		
 		
-		//Add Product to Cart
+		
+		//Add Product to Cart9
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[text()='Add to cart']")));
 		String title = driver.findElement(By.xpath("//h2[text()='MacBook Pro']")).getText();
 		if(title.contains("MacBook Pro")) {
@@ -75,12 +74,12 @@ public class DemoBlazeWorking {
 		driver.findElement(By.xpath("//a[text()='Add to cart']")).click();
 		wait.until(ExpectedConditions.alertIsPresent());
 		
-		
 		//handling alert
 		driver.switchTo().alert().accept();
 		System.out.println("Alert handled successfully");
 		System.out.println("Mac Book added to cart");
 		driver.findElement(By.xpath("//a[text()='Cart']")).click();
+		
 		
 		
 		//Place Order
@@ -104,7 +103,8 @@ public class DemoBlazeWorking {
 		} 
 		System.out.println("Done");
 		driver.quit();
-
+	
 	}
 
 }
+
