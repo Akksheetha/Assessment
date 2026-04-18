@@ -43,7 +43,7 @@ public class DemoBlazeWorking {
 		//Category Navigation & Product Handling
 		driver.findElement(By.xpath("//a[contains(@class,'list-group-item') and text()='Laptops']")).click();
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("tbodyid")));
-		Thread.sleep(5000);
+		wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.className("hrefch")));
 		List<WebElement> product = driver.findElements(By.className("hrefch"));
 		List<String> productList = new ArrayList<>();
 		for(WebElement p : product) {
@@ -66,8 +66,8 @@ public class DemoBlazeWorking {
 		
 		
 		//Add Product to Cart9
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[text()='Add to cart']")));
-		String title = driver.findElement(By.xpath("//h2[text()='MacBook Pro']")).getText();
+		WebElement titleElement = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//h2")));
+        String title = titleElement.getText();
 		if(title.contains("MacBook Pro")) {
 			System.out.println("Navigated to MacBook pro page");
 		}
