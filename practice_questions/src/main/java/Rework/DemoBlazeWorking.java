@@ -12,123 +12,99 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class DemoBlazeWorking {
 
 	public static void main(String[] args) throws InterruptedException {
-
-		// Login
+		// TODO Auto-generated method stub
+		
+		//Login
 		WebDriver driver = new ChromeDriver();
-		driver.manage().window().maximize();
 		driver.get("https://demoblaze.com");
-
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
-
+		WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(10));
 		driver.findElement(By.id("login2")).click();
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("loginusername")));
-
-		driver.findElement(By.id("loginusername")).sendKeys("Admin");
-		driver.findElement(By.id("loginpassword")).sendKeys("admin");
-
+		WebElement name = driver.findElement(By.id("loginusername"));
+		name.click();
+		name.sendKeys("Admin");
+		WebElement pass = driver.findElement(By.id("loginpassword"));
+		pass.click();
+		pass.sendKeys("admin");
 		driver.findElement(By.xpath("//button[contains(text(),'Log')]")).click();
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("nameofuser")));
-
 		String text = driver.findElement(By.id("nameofuser")).getText();
-		if (text.contains("Welcome")) {
-			System.out.println("Login Successful");
+		if(text.contains("Welcome")) {
+			System.out.println("login successful");
 		}
-
-		// Category Navigation
-		driver.findElement(By.xpath("//a[text()='Laptops']")).click();
-
-		// WAIT properly for laptops to load
-		wait.until(ExpectedConditions.textToBePresentInElementLocated(
-				By.xpath("//a[@class='list-group-item active']"), "Laptops"));
-
-		wait.until(ExpectedConditions.numberOfElementsToBeMoreThan(
-				By.className("hrefch"), 3));
-
+		
+		
+		//Category Navigation & Product Handling
+		driver.findElement(By.xpath("//a[contains(@class,'list-group-item') and text()='Laptops']")).click();
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("tbodyid")));
+		Thread.sleep(5000);
 		List<WebElement> product = driver.findElements(By.className("hrefch"));
 		List<String> productList = new ArrayList<>();
-
-		for (WebElement p : product) {
+		for(WebElement p : product) {
 			productList.add(p.getText());
 		}
-
 		Collections.sort(productList);
 		Set<String> uniqueproducts = new LinkedHashSet<>(productList);
-
-		for (String p : uniqueproducts) {
-			System.out.println("Found Laptop: " + p);
+		for(String p : uniqueproducts) {
+			System.out.println("Found Laptop : "+p);
 		}
-
-		// Select MacBook Pro
-		WebElement lap = wait.until(
-				ExpectedConditions.elementToBeClickable(By.xpath("//a[text()='MacBook Pro']")));
-
-		JavascriptExecutor js = (JavascriptExecutor) driver;
+		Actions act = new Actions(driver);
+		WebElement lap = driver.findElement(By.xpath("//a[text()='MacBook Pro']"));
+		JavascriptExecutor js = (JavascriptExecutor)driver;
 		js.executeScript("arguments[0].scrollIntoView(true);", lap);
-
-		if (lap.getText().contains("Pro")) {
+		if(lap.getText().contains("Pro")) {
 			System.out.println("MacBook Pro Found");
 		}
-
-		// Force click (important for Jenkins)
-		js.executeScript("arguments[0].click();", lap);
-
-		// Wait for product page
-		wait.until(ExpectedConditions.visibilityOfElementLocated(
-				By.xpath("//h2[contains(text(),'MacBook Pro')]")));
-
-		// Add Product to Cart
-		WebElement titleElement = driver.findElement(By.xpath("//h2"));
-		String title = titleElement.getText();
-
-		if (title.contains("MacBook Pro")) {
+		act.moveToElement(lap).click().perform();
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//h2[text()='MacBook Pro']")));
+		
+		
+		//Add Product to Cart
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[text()='Add to cart']")));
+		String title = driver.findElement(By.xpath("//h2[text()='MacBook Pro']")).getText();
+		if(title.contains("MacBook Pro")) {
 			System.out.println("Navigated to MacBook pro page");
 		}
-
 		driver.findElement(By.xpath("//a[text()='Add to cart']")).click();
 		wait.until(ExpectedConditions.alertIsPresent());
-
+		
+		
+		//handling alert
 		driver.switchTo().alert().accept();
 		System.out.println("Alert handled successfully");
 		System.out.println("Mac Book added to cart");
-
 		driver.findElement(By.xpath("//a[text()='Cart']")).click();
-
-		// Place Order
-		wait.until(ExpectedConditions.visibilityOfElementLocated(
-				By.xpath("//button[text()='Place Order']")));
-
+		
+		
+		//Place Order
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[text()='Place Order']")));
 		driver.findElement(By.xpath("//button[text()='Place Order']")).click();
-
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("orderModalLabel")));
-
 		driver.findElement(By.id("name")).sendKeys("ABCD");
 		driver.findElement(By.id("country")).sendKeys("India");
 		driver.findElement(By.id("city")).sendKeys("Namakkal");
 		driver.findElement(By.id("card")).sendKeys("123456789");
 		driver.findElement(By.id("month")).sendKeys("4");
 		driver.findElement(By.id("year")).sendKeys("2026");
-
 		driver.findElement(By.xpath("//button[text()='Purchase']")).click();
-
-		wait.until(ExpectedConditions.visibilityOfElementLocated(
-				By.xpath("//div[contains(@class,'sa-success')]")));
-
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[contains(@class,'sa-success')]")));
 		String check = driver.findElement(By.cssSelector(".lead.text-muted")).getText();
-
-		if (check.contains("Id")) {
-			System.out.println("Order is placed successfully");
-			System.out.println(check);
-		} else {
-			System.out.println("Order is Unsuccessful");
-		}
-
+		if (check.contains("Id")) { 
+		    System.out.println("Order is placed successfully"); 
+		    System.out.println(check);
+		} else { 
+		    System.out.println("Order is Unsuccessful"); 
+		} 
 		System.out.println("Done");
 		driver.quit();
+
 	}
+
 }
