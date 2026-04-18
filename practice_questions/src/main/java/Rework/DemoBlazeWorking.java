@@ -61,7 +61,8 @@ public class DemoBlazeWorking {
 		if(lap.getText().contains("Pro")) {
 			System.out.println("MacBook Pro Found");
 		}
-		act.moveToElement(lap).click().perform();
+		lap.click();
+        wait.until(ExpectedConditions.urlContains("prod.html"));
 		
 		
 		
