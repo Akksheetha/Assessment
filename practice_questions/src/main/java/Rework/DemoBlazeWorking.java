@@ -42,8 +42,12 @@ public class DemoBlazeWorking {
 		
 		//Category Navigation & Product Handling
 		driver.findElement(By.xpath("//a[contains(@class,'list-group-item') and text()='Laptops']")).click();
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("tbodyid")));
-		wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.className("hrefch")));
+		wdriver.findElement(By.xpath("//a[contains(@class,'list-group-item') and text()='Laptops']")).click();
+        wait.until(ExpectedConditions.textToBePresentInElementLocated(
+    By.xpath("//a[@class='list-group-item active']"),
+    "Laptops"
+));
+        wait.until(ExpectedConditions.numberOfElementsToBeMoreThan(By.className("hrefch"), 3));
 		List<WebElement> product = driver.findElements(By.className("hrefch"));
 		List<String> productList = new ArrayList<>();
 		for(WebElement p : product) {
