@@ -1,0 +1,6 @@
+Total Lines: 5
+Total Words: 31
+Total Characters: 239
+Total Vowels: 34
+ERROR: 1
+CRITICAL: 1
