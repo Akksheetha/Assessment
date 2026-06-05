@@ -1,0 +1,112 @@
+{
+  "id": "a61c3cff-b433-4c4c-b4c8-a9a250c7899a",
+  "version": "2.0",
+  "name": "Selenese Commands Assessment",
+  "url": "https://tutorialsninja.com/demo/",
+  "tests": [{
+    "id": "8f375558-fe01-47fc-9ea0-8b20fa883a7c",
+    "name": "Untitled",
+    "commands": [{
+      "id": "8201e03a-18ac-4800-98c5-ed9826817077",
+      "comment": "",
+      "command": "open",
+      "target": "https://tutorialsninja.com/demo/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "26f64ed2-87e6-48a1-b9e8-a65126859a5c",
+      "comment": "",
+      "command": "waitForElementVisible",
+      "target": "css=#content > div.row > div:nth-child(2) > div > div.caption > p.price",
+      "targets": [],
+      "value": "30000"
+    }, {
+      "id": "a721184e-468b-4a5a-b66b-81cf1966fb00",
+      "comment": "",
+      "command": "storeText",
+      "target": "css=#content > div.row > div:nth-child(2) > div > div.caption > p.price",
+      "targets": [],
+      "value": "x"
+    }, {
+      "id": "16bc5eb5-c20d-44bb-98bb-063998867767",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=iPhone",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "d9a6df46-42c0-46df-aa33-d4463e9e4362",
+      "comment": "",
+      "command": "pause",
+      "target": "2000",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "67451215-8a95-48a7-a747-535a72f3a2f6",
+      "comment": "",
+      "command": "storeText",
+      "target": "css=.list-unstyled h2",
+      "targets": [],
+      "value": "y"
+    }, {
+      "id": "307143f7-aae9-49a3-879f-3909a1bfb680",
+      "comment": "",
+      "command": "echo",
+      "target": "${x}",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "b0eafb48-158c-4d23-a8ff-6e7e75e10aba",
+      "comment": "",
+      "command": "echo",
+      "target": "${y}",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "04ed211d-ffb1-4793-9928-63cbcff6250e",
+      "comment": "",
+      "command": "echo",
+      "target": "pricematch",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "a87c8332-36a5-4952-8042-b38f8bd8da5a",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Description",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "556401fa-3c46-4059-81c8-e6a4b7052bdd",
+      "comment": "",
+      "command": "waitForElementVisible",
+      "target": "id=tab_description",
+      "targets": [],
+      "value": "30000"
+    }, {
+      "id": "f3dbbe70-66cd-48e2-ad94-7c5fb217c3b8",
+      "comment": "",
+      "command": "storeText",
+      "target": "id=tab_description",
+      "targets": [],
+      "value": "decription"
+    }, {
+      "id": "9d915765-87ad-43c9-bee4-2a6a29a673c3",
+      "comment": "",
+      "command": "echo",
+      "target": "${description}",
+      "targets": [],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "189eb5f2-bfb7-468e-9b57-c323a6aaa62e",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["8f375558-fe01-47fc-9ea0-8b20fa883a7c"]
+  }],
+  "urls": ["https://tutorialsninja.com/demo/"],
+  "plugins": []
+}
