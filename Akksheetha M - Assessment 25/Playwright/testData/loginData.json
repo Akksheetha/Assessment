@@ -1,0 +1,14 @@
+{
+    "valid":{
+        "email":"2k22csbs03@kiot.ac.in",
+        "password":"Password@1234"
+    },
+    "invalidemail":{
+        "email":"akkshu",
+        "password":"Password@1234"
+    },
+    "incorrectpass":{
+        "email":"2k22csbs03@kiot.ac.in",
+        "password":"wrong"
+    }
+}
