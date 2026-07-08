@@ -1,0 +1,315 @@
+[
+  {
+    "description": "",
+    "elements": [
+      {
+        "description": "",
+        "id": "registering-in-demo-web-shop;register",
+        "keyword": "Scenario",
+        "line": 3,
+        "name": "Register",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 1351439800
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 5,
+            "name": "the user is on demo web shop register page",
+            "match": {
+              "location": "src\\test\\steps\\RegisterTest.ts:4"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 3337747400
+            }
+          },
+          {
+            "arguments": [
+              {
+                "rows": [
+                  {
+                    "cells": [
+                      "fname",
+                      "lname",
+                      "email"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "akkshu",
+                      "M",
+                      "akkshu321@gmail.com"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "keyword": "When ",
+            "line": 6,
+            "name": "the user fills the credentials",
+            "match": {
+              "location": "src\\test\\steps\\RegisterTest.ts:9"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 189042999
+            }
+          },
+          {
+            "arguments": [
+              {
+                "rows": [
+                  {
+                    "cells": [
+                      "pass",
+                      "cpass"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "Password@1234",
+                      "Password@1234"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "keyword": "And ",
+            "line": 9,
+            "name": "fills the password and confirm password",
+            "match": {
+              "location": "src\\test\\steps\\RegisterTest.ts:14"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 37968699
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 12,
+            "name": "then user clicks the register button and then continue",
+            "match": {
+              "location": "src\\test\\steps\\RegisterTest.ts:20"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1294467299
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 13,
+            "name": "the user should be directed to the home page successfully",
+            "match": {
+              "location": "src\\test\\steps\\RegisterTest.ts:25"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 250280999
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 532784700
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@Register",
+            "line": 2
+          }
+        ],
+        "type": "scenario"
+      }
+    ],
+    "id": "registering-in-demo-web-shop",
+    "line": 1,
+    "keyword": "Feature",
+    "name": "Registering in Demo web shop",
+    "tags": [],
+    "uri": "src\\test\\features\\Register.feature"
+  },
+  {
+    "description": "",
+    "elements": [
+      {
+        "description": "",
+        "id": "login;login-to-the-demo-web-shop",
+        "keyword": "Scenario Outline",
+        "line": 13,
+        "name": "login to the demo web shop",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 635791900
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 4,
+            "name": "the user is on register page of demo web shop",
+            "match": {
+              "location": "src\\test\\steps\\LoginTest.ts:5"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 3221632100
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 5,
+            "name": "the user click login",
+            "match": {
+              "location": "src\\test\\steps\\LoginTest.ts:9"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 445280099
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 8,
+            "name": "enter the valid details of the user from \"valid\"",
+            "match": {
+              "location": "src\\test\\steps\\LoginTest.ts:13"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 767592899
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 9,
+            "name": "user should should be displayed with respective page \"valid\"",
+            "match": {
+              "location": "src\\test\\steps\\LoginTest.ts:20"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 241579200
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 418342300
+            }
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "login;login-to-the-demo-web-shop",
+        "keyword": "Scenario Outline",
+        "line": 14,
+        "name": "login to the demo web shop",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 441057600
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 4,
+            "name": "the user is on register page of demo web shop",
+            "match": {
+              "location": "src\\test\\steps\\LoginTest.ts:5"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 3321105100
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 5,
+            "name": "the user click login",
+            "match": {
+              "location": "src\\test\\steps\\LoginTest.ts:9"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 438084999
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 8,
+            "name": "enter the valid details of the user from \"invalid\"",
+            "match": {
+              "location": "src\\test\\steps\\LoginTest.ts:13"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 491299699
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 9,
+            "name": "user should should be displayed with respective page \"invalid\"",
+            "match": {
+              "location": "src\\test\\steps\\LoginTest.ts:20"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 55269700
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 358800300
+            }
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      }
+    ],
+    "id": "login",
+    "line": 1,
+    "keyword": "Feature",
+    "name": "Login",
+    "tags": [],
+    "uri": "src\\test\\features\\login.feature"
+  }
+]
