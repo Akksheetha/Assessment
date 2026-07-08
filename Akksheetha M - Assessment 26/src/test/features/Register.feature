@@ -5,7 +5,7 @@ Scenario: Register
 Given the user is on demo web shop register page
 When the user fills the credentials
 |fname | lname | email          |
-|akkshu|M      |akkshu345@gmail.com|
+|akkshu|M      |akkshu3456@gmail.com|
 And fills the password and confirm password
 |pass          |cpass        |
 |Password@1234 |Password@1234|
